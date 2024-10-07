@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    border: 0;
+    outline: 0;
+}
+.background{
+    background-image: url(./img/dicebg.jpg);
+    background-color: rgba(76, 80, 80, 0.33);
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+}
+.container{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    display: grid;
+    place-items: center;
+    width: 25vw;
+     background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 60px 0 40px;
+    border-radius: 30px;
+    box-shadow: 7px 7px 15px  rgb(227, 217, 217);
+}
+.dice {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+@keyframes rolling {
+    0%, 100% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+.face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #a23951;
+    border-radius: 20px;
+    background: linear-gradient(145deg, 
+    #d58396,#8D132F);
+    transform-style: preserve-3d;
+}
+.face::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #d58396;
+    transform: translateZ(-1px);
+}
+.face::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    background: #000;
+    border-radius: 50%;
+}
+.front{
+    transform: translateZ(50px);
+}
+.back{
+    transform: rotateX(180deg) translateZ(50px);
+}
+.top{
+    transform: rotateX(90deg) translateZ(50px);
+}
+.bottom{
+    transform: rotateX(-90deg) translateZ(50px);
+}
+.right{
+    transform: rotateY(90deg) translateZ(50px);
+}
+.left{
+    transform: rotateY(-90deg) translateZ(50px);
+}
+.front::after{
+    width: 30px;
+    height: 30px;
+    background: #000;
+    margin: -15px 0 0 -15px;
+}
+.back::after{
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 0,
+    0 25px,
+    40px 25px,
+    0 50px,
+    40px 50px;
+}
+.top::after{
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 40px;
+}
+.bottom::after{
+    margin: -36px 0 0 -36px;
+    box-shadow: 26px 26px,
+    52px 52px,
+    52px 0,
+    0 52px;
+}
+.right::after{
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 0,
+    0 40px,
+    40px 40px;
+}
+.left::after{
+    margin: -35px 0 0 -35px;
+    box-shadow: 25px 25px,
+    50px 50px;
+}
+.roll{
+    
+    transform-style: preserve-3d;
+    transition: 1s ease;
+    color: #8D132F;
+    margin-top: 60px;
+    padding: 6px 12px;
+    border-radius: 70px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 3px dashed #8D132F;
+    cursor: pointer;
+}
+.roll:hover{
+    color: #d58396;
+    background: #8D132F;
+    
+    border: 5px double #d58396;
+}
+.message{
+    transform-style: preserve-3d;
+    border: 2px solid #8D132F;
+    border-radius: 30px;
+    background: linear-gradient(145deg, 
+    #d58396,#8D132F);
+padding: 10px 10px;
+text-align: center;
+width: 12vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px; 
+    font-size: 25px; 
+    font-weight: bolder;
+    color: #f5e8eb;
+    text-shadow: #130206 2px 5px 4px;
+}
+
+
+@media (max-width: 320px) {
+    .container {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 80vw; 
+        height: 50vh;
+        padding: 4vw 0; 
+    }
+    
+    .dice {
+        width: 30vw;
+        height: 30vw; 
+    }
+    
+    .roll {
+        font-size: 4vw;
+        padding: 4vw;
+    }
+    
+    .message {
+        font-size: 6vw; 
+        width: 80%; 
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 80vw; 
+        height: 50vh;
+        padding: 4vw 0; 
+    }
+    
+    .dice {
+        width: 30vw;
+        height: 30vw; 
+    }
+    
+    .roll {
+        font-size: 4vw;
+        padding: 4vw;
+    }
+    
+    .message {
+        font-size: 6vw; 
+        width: 80%; 
+    }
+}
+
+@media (max-width: 425px) {
+    .container {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 80vw; 
+        height: 50vh;
+        padding: 4vw 0; 
+    }
+    
+    .dice {
+        width: 30vw;
+        height: 30vw; 
+    }
+    
+    .roll {
+        font-size: 4vw;
+        padding: 4vw;
+    }
+    
+    .message {
+        font-size: 6vw; 
+        width: 80%; 
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        position: absolute;
+        top: 30%;
+        left: 25%;
+        width: 50vw; 
+        height: 50vh;
+        padding: 4vw 0; 
+    }
+    
+    .dice {
+        width: 15vw;
+        height: 15vw; 
+        transform-style: preserve-3d;
+        transition: 1s ease;
+        
+    }
+    
+    .roll {
+        font-size: 2vw;
+        padding: 1vw;
+    }
+    
+    .message {
+        font-size: 3vw; 
+        width: 60%; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        position: absolute;
+        top: 30%;
+        left: 25%;
+        width: 50vw; 
+        height: 50vh;
+        padding: 4vw 0; 
+    }
+
+    .dice{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        transition: 1s ease;
+        
+    }
+    .roll {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    .message {
+        font-size: 2.5vw; 
+        width: 50%; 
+    }
+}
